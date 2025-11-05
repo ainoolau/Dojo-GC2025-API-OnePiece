@@ -2,6 +2,7 @@ package com.example.onepiece.mappers;
 
 import com.example.onepiece.dtos.MissaoCreateDTO;
 import com.example.onepiece.dtos.MissaoDTO;
+import com.example.onepiece.dtos.MissaoResumoDTO;
 import com.example.onepiece.entities.Missao;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,6 +30,17 @@ public class MissaoMapper {
                 .tipo(entity.getTipo())
                 .status(entity.getStatus())
                 .pirataId(entity.getPirata() != null ? entity.getPirata().getId() : null)
+                .build();
+    }
+
+    // Entity >> DTO (resumo - usado dentro do PirataDetalheDTO)
+    public static MissaoResumoDTO toResumoDTO(Missao entity) {
+        if (entity == null) return null;
+        return MissaoResumoDTO.builder()
+                .id(entity.getId())
+                .danger(entity.getDanger())
+                .tipo(entity.getTipo())
+                .status(entity.getStatus())
                 .build();
     }
 

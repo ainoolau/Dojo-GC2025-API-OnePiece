@@ -70,6 +70,13 @@ public class PirataService {
         pirataRepository.deleteById(id);
     }
 
+    // Buscar pirata por ID com suas missões (detalhado)
+    @Transactional(readOnly = true)
+    public Pirata buscarDetalhePorId(UUID id) {
+        return pirataRepository.findWithMissoesById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Pirata não encontrado"));
+    }
+
     // Validações básicas
     private void validarCamposObrigatorios(Pirata pirata) {
         if (pirata.getNome() == null || pirata.getNome().isBlank())

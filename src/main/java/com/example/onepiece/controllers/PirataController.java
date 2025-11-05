@@ -8,6 +8,7 @@ import com.example.onepiece.services.PirataService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import com.example.onepiece.dtos.PirataDetalheDTO;
 import java.util.List;
 import java.util.UUID;
 
@@ -57,5 +58,11 @@ public class PirataController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar(@PathVariable UUID id) {
         service.deletar(id);
+    }
+
+    // Buscar pirata por ID e exibir suas missões (detalhe completo)
+    @GetMapping("/{id}/detalhe")
+    public PirataDetalheDTO buscarDetalhe(@PathVariable UUID id) {
+        return PirataMapper.toDetalheDTO(service.buscarDetalhePorId(id));
     }
 }
