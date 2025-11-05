@@ -2,6 +2,7 @@ package com.example.onepiece.services;
 
 import com.example.onepiece.domain.RacaPirata;
 import com.example.onepiece.entities.Pirata;
+import com.example.onepiece.infra.exceptions.ResourceNotFoundException;
 import com.example.onepiece.repositories.PirataRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -45,7 +46,7 @@ public class PirataService {
     @Transactional(readOnly = true)
     public Pirata buscarPorId(UUID id) {
         return pirataRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Pirata não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Pirata não encontrado"));
     }
 
     // Buscar por raça
