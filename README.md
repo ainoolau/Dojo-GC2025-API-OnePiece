@@ -9,7 +9,7 @@ validações, exceções globais e documentação automática com <strong>Swagge
 <h2>✅ Stack</h2>
 <ul>
   <li>Java <strong>21</strong></li>
-  <li>Spring Boot <strong>3.5.x</strong></li>
+  <li>Spring Boot <strong>3.5.7</strong></li>
   <li>Spring Data JPA (Hibernate)</li>
   <li>PostgreSQL</li>
   <li>Validation (Jakarta)</li>
